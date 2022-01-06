@@ -22,6 +22,7 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
 
 	private final List<BeanPostProcessor> beanPostProcessors = new ArrayList<>();
 
+	//保证单例的factory bean只会创建一次bean
 	private final Map<String, Object> factoryBeanObjectCache = new HashMap<>();
 
 	@Override
