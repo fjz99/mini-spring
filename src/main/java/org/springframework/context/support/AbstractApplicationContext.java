@@ -46,6 +46,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader i
 	 * @param beanFactory
 	 */
 	protected void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory beanFactory) {
+		//会顺手初始化bean，导致不会在后续初始化
 		Map<String, BeanFactoryPostProcessor> beanFactoryPostProcessorMap = beanFactory.getBeansOfType(BeanFactoryPostProcessor.class);
 		for (BeanFactoryPostProcessor beanFactoryPostProcessor : beanFactoryPostProcessorMap.values()) {
 			beanFactoryPostProcessor.postProcessBeanFactory(beanFactory);
@@ -58,6 +59,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader i
 	 * @param beanFactory
 	 */
 	protected void registerBeanPostProcessors(ConfigurableListableBeanFactory beanFactory) {
+		//会顺手初始化bean，导致不会在后续初始化
 		Map<String, BeanPostProcessor> beanPostProcessorMap = beanFactory.getBeansOfType(BeanPostProcessor.class);
 		for (BeanPostProcessor beanPostProcessor : beanPostProcessorMap.values()) {
 			beanFactory.addBeanPostProcessor(beanPostProcessor);
